@@ -22,29 +22,30 @@ module.exports = grammar({
   ],
 
   extras: _ => [
-    token(choice(
+    token(// choice(
       // Skip over stars at the beginnings of lines
-      seq(/\n/, /[ \t]*/, repeat(seq('*', /[ \t]*/))),
+      // seq(/\n/, /[ \t]*/, repeat(seq('*', /[ \t]*/))),
       /\s/,
-    )),
+    // )
+    ),
   ],
 
   rules: {
-    document: $ => choice(
+    document: $ => //choice(
       seq(
-        $._multiline_begin,
+        // $._multiline_begin,
         optional($.brief_header),
         optional($.description),
         repeat(choice($.tag, $.code_block, $._text_line)),
-        $._multiline_end,
+        // $._multiline_end,
       ),
-      seq(
-        $._singleline_begin,
-        optional($.brief_header),
-        optional($.description),
-        repeat($.tag),
-      ),
-    ),
+      // seq(
+      //   $._singleline_begin,
+      //   optional($.brief_header),
+      //   optional($.description),
+      //   repeat($.tag),
+      // ),
+    // ),
 
     brief_header: $ => prec(1, choice(
       seq(alias(tagName('brief'), $.tag_name), $.brief_description),
