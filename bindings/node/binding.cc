@@ -4,7 +4,7 @@
 
 using namespace v8;
 
-extern "C" TSLanguage *tree_sitter_doxygen();
+extern "C" TSLanguage *tree_sitter_nvim_comment();
 
 namespace {
 
@@ -18,13 +18,13 @@ void Init(Local<Object> exports, Local<Object> module) {
     Local<Function> constructor = Nan::GetFunction(tpl).ToLocalChecked();
     Local<Object> instance =
         constructor->NewInstance(Nan::GetCurrentContext()).ToLocalChecked();
-    Nan::SetInternalFieldPointer(instance, 0, tree_sitter_doxygen());
+    Nan::SetInternalFieldPointer(instance, 0, tree_sitter_nvim_comment());
 
     Nan::Set(instance, Nan::New("name").ToLocalChecked(),
-             Nan::New("doxygen").ToLocalChecked());
+             Nan::New("nvim_comment").ToLocalChecked());
     Nan::Set(module, Nan::New("exports").ToLocalChecked(), instance);
 }
 
-NODE_MODULE(tree_sitter_doxygen_binding, Init)
+NODE_MODULE(tree_sitter_nvim_comment_binding, Init)
 
 } // namespace

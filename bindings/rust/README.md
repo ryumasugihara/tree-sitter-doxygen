@@ -1,4 +1,4 @@
-# tree-sitter-doxygen
+# tree-sitter-nvim_comment
 
 This crate provides a Doxygen grammar for the [tree-sitter][] parsing library.
 To use this crate, add it to the `[dependencies]` section of your `Cargo.toml`
@@ -9,7 +9,7 @@ way.)
 ```toml
 [dependencies]
 tree-sitter = "0.20.10"
-tree-sitter-doxygen = "1.1.0"
+tree-sitter-nvim_comment = "1.1.0"
 ```
 
 Typically, you will use the [language][language func] function to add this
@@ -24,14 +24,14 @@ let code = r#"
  */
 "#;
 let mut parser = Parser::new();
-parser.set_language(tree_sitter_doxygen::language()).expect("Error loading Doxygen grammar");
+parser.set_language(tree_sitter_nvim_comment::language()).expect("Error loading Doxygen grammar");
 let parsed = parser.parse(code, None);
 ```
 
 If you have any questions, please reach out to us in the [tree-sitter
 discussions] page.
 
-[language func]: https://docs.rs/tree-sitter-doxygen/*/tree_sitter_doxygen/fn.language.html
+[language func]: https://docs.rs/tree-sitter-nvim_comment/*/tree_sitter_nvim_comment/fn.language.html
 [Parser]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Parser.html
 [tree-sitter]: https://tree-sitter.github.io/
 [tree-sitter crate]: https://crates.io/crates/tree-sitter

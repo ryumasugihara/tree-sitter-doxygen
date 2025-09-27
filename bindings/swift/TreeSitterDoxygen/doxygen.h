@@ -7,7 +7,7 @@ typedef struct TSLanguage TSLanguage;
 extern "C" {
 #endif
 
-extern TSLanguage *tree_sitter_doxygen();
+extern TSLanguage *tree_sitter_nvim_comment();
 
 #ifdef __cplusplus
 }

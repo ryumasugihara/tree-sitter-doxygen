@@ -1,19 +1,19 @@
 {
-  "name": "tree-sitter-doxygen",
+  "name": "tree-sitter-nvim_comment",
   "version": "1.1.0",
   "description": "Doxygen grammar for tree-sitter",
   "main": "bindings/node",
   "keywords": [
     "parser",
     "lexer",
-    "doxygen"
+    "nvim_comment"
   ],
   "author": "Amaan Qureshi <amaanq12@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amaanq/tree-sitter-doxygen/issues"
+    "url": "https://github.com/amaanq/tree-sitter-nvim_comment/issues"
   },
-  "homepage": "https://github.com/amaanq/tree-sitter-doxygen#readme",
+  "homepage": "https://github.com/amaanq/tree-sitter-nvim_comment#readme",
   "dependencies": {
     "nan": "^2.17.0"
   },
@@ -22,7 +22,7 @@
     "eslint-config-google": "^0.14.0",
     "tree-sitter-cli": "0.20.8"
   },
-  "repository": "https://github.com/amaanq/tree-sitter-doxygen",
+  "repository": "https://github.com/amaanq/tree-sitter-nvim_comment",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
     "lint": "eslint grammar.js",
@@ -31,8 +31,8 @@
   },
   "tree-sitter": [
     {
-      "scope": "text.doxygen",
-      "injection-regex": "doxygen",
+      "scope": "text.nvim_comment",
+      "injection-regex": "nvim_comment",
       "highlights": [
         "queries/highlights.scm"
       ],

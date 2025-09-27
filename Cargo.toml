@@ -1,12 +1,12 @@
 [package]
-name = "tree-sitter-doxygen"
+name = "tree-sitter-nvim_comment"
 description = "Doxygen grammar for tree-sitter"
 version = "1.1.0"
 authors = ["Amaan Qureshi <amaanq12@gmail.com>"]
 license = "MIT"
-keywords = ["incremental", "parsing", "doxygen"]
+keywords = ["incremental", "parsing", "nvim_comment"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/amaanq/tree-sitter-doxygen"
+repository = "https://github.com/amaanq/tree-sitter-nvim_comment"
 edition = "2021"
 autoexamples = false
 

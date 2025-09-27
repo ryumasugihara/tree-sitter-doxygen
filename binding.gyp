@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "tree_sitter_doxygen_binding",
+      "target_name": "tree_sitter_nvim_comment_binding",
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
         "src"
