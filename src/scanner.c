@@ -21,7 +21,7 @@ static inline void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
 
 static inline void skip(TSLexer *lexer) { lexer->advance(lexer, true); }
 
-unsigned tree_sitter_nvim_comment_external_scanner_serialize(void *payload, char *buffer) {
+unsigned tree_sitter_nvim_comment_doxygen_external_scanner_serialize(void *payload, char *buffer) {
     Scanner *scanner = (Scanner *)payload;
 
     if (scanner->codeblock_start_column > 255 || scanner->codeblock_delimiter_length > 255) {
@@ -33,7 +33,7 @@ unsigned tree_sitter_nvim_comment_external_scanner_serialize(void *payload, char
     return 2;
 }
 
-void tree_sitter_nvim_comment_external_scanner_deserialize(void *payload, const char *buffer, unsigned length) {
+void tree_sitter_nvim_comment_doxygen_external_scanner_deserialize(void *payload, const char *buffer, unsigned length) {
     Scanner *scanner = (Scanner *)payload;
 
     if (length == 2) {
@@ -41,14 +41,14 @@ void tree_sitter_nvim_comment_external_scanner_deserialize(void *payload, const 
         scanner->codeblock_start_column = (uint32_t)buffer[1];
     } else if (length != 0 && length != 2) {
         fprintf(stderr,
-                "tree-sitter-nvim_comment: Invalid buffer length %d! This should "
+                "tree-sitter-nvim_comment_doxygen: Invalid buffer length %d! This should "
                 "never happen\n",
                 length);
         abort();
     }
 }
 
-bool tree_sitter_nvim_comment_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
+bool tree_sitter_nvim_comment_doxygen_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
     Scanner *scanner = (Scanner *)payload;
 
     if (valid_symbols[BRIEF_TEXT] && !valid_symbols[CODE_BLOCK_LANGUAGE]) {
@@ -227,12 +227,12 @@ bool tree_sitter_nvim_comment_external_scanner_scan(void *payload, TSLexer *lexe
     return false;
 }
 
-void *tree_sitter_nvim_comment_external_scanner_create() {
+void *tree_sitter_nvim_comment_doxygen_external_scanner_create() {
     Scanner *scanner = (Scanner *)calloc(1, sizeof(Scanner));
     return scanner;
 }
 
-void tree_sitter_nvim_comment_external_scanner_destroy(void *payload) {
+void tree_sitter_nvim_comment_doxygen_external_scanner_destroy(void *payload) {
     Scanner *scanner = (Scanner *)payload;
     free(scanner);
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-  "name": "nvim_comment",
+  "name": "nvim_comment_doxygen",
   "rules": {
     "document": {
       "type": "SEQ",

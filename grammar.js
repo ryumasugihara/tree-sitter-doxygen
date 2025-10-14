@@ -11,7 +11,7 @@
 // @ts-check
 
 module.exports = grammar({
-  name: 'nvim_comment',
+  name: 'nvim_comment_doxygen',
 
   externals: $ => [
     $.brief_text,
